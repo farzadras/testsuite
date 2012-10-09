@@ -59,10 +59,10 @@
             <host>127.0.0.1</host>
             <port>5432</port>
             <database>madmark</database>
-            <user>iyerr3</user>
-            <superuser>iyerr3</superuser>
+            <user>rastef</user>
+            <superuser>rastef</superuser>
             <segmentnum>2</segmentnum>
-            <master_dir>/Users/iyerr3/greenplum-db-data/master/gpseg-1</master_dir>
-            <env>/Users/iyerr3/greenplum-db-devel/greenplum_path.sh</env>
+            <master_dir>/Users/rastef/greenplum-db-data/master/gpseg-1</master_dir>
+            <env>/Users/rastef/greenplum-db-devel/greenplum_path.sh</env>
         </analytics_tool>
 </analytics_tools>

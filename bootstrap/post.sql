@@ -62,6 +62,13 @@ SET evaluation_function =
 WHERE itemname like 'kmeans_new_cset%';
 
 UPDATE benchmark.testitemresult AS ts
+SET evaluation_function =
+(SELECT silhouette
+ FROM benchmark.kmeans_kmeans_new_plusplus_ctas AS kmeans
+ WHERE kmeans.runid = ts.runid AND kmeans.testitemname=ts.itemname)
+WHERE itemname like 'kmeans_new_plusplus%';
+
+UPDATE benchmark.testitemresult AS ts
 	SET evaluation_function =
 		(SELECT silhouette
 	  		FROM benchmark.kmeans_kmeans_new_random_ctas AS kmeans

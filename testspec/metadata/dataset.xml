@@ -6611,6 +6611,21 @@
         <rows>360</rows>
         <algorithm>
            <method>
+                <name>kmeans_new_plusplus_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_plusplus_ctas_movement_libras</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_movement_libras</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+           <method>
                 <name>kmeans_cset</name>
                 <parameter>
                     <name>src_relation</name>
@@ -6742,6 +6757,21 @@
         <rows>2458285</rows>
         <algorithm>
            <method>
+                <name>kmeans_new_plusplus_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_plusplus_ctas_us_census_1990</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_us_census_1990</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+           <method>
                 <name>kmeans_cset</name>
                 <parameter>
                     <name>src_relation</name>
@@ -6867,6 +6897,21 @@
         <name>km_water_treatment</name>
         <rows>527</rows>
         <algorithm>
+           <method>
+                <name>kmeans_new_plusplus_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_plusplus_ctas_water_treatment</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_water_treatment</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+           </method>
            <method>
                 <name>kmeans_cset</name>
                 <parameter>
@@ -6995,6 +7040,21 @@
         <rows>177</rows>
         <algorithm>
            <method>
+                <name>kmeans_new_plusplus_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_plusplus_ctas_wine</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_wine</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+           </method>
+           <method>
                 <name>kmeans_cset</name>
                 <parameter>
                     <name>src_relation</name>
@@ -7120,6 +7180,21 @@
         <name>km_winequality_red</name>
         <rows>1599</rows>
         <algorithm>
+           <method>
+                <name>kmeans_new_plusplus_ctas</name>
+                <parameter>
+                    <name>table_name</name>
+                    <value>madlibtestresult.kmeans_new_plusplus_ctas_winequality_red</value>
+                </parameter>
+                <parameter>
+                    <name>src_relation</name>
+                    <value>madlibtestdata.km_winequality_red</value>
+                </parameter>
+                <parameter>
+                    <name>src_col_data</name>
+                    <value>position</value>
+                </parameter>
+           </method>
            <method>
                 <name>kmeans_cset</name>
                 <parameter>

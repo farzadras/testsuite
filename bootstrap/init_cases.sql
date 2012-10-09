@@ -84,7 +84,6 @@ CREATE OR REPLACE VIEW benchmark.testresultreport AS
       WHEN  trb.evaluation_function IS NULL AND trb.result_info <> tr.result_info
       THEN 'FAILED : Expected result not matched'
 
-<<<<<<< HEAD
       WHEN (trb.itemname not like 'rf%' AND trb.itemname not like '%cross_validate%'  AND trb.itemname not like 'svm%' AND (trb.evaluation_function IS NOT NULL AND ((trb.evaluation_function - tr.evaluation_function) between -0.0001 and 0.0001)))
           OR ((trb.itemname like 'rf%' OR  trb.itemname like '%cross_validate%' ) AND (trb.evaluation_function IS NOT NULL AND ((tr.evaluation_function / trb.evaluation_function) between 0.7 and 1.3 )))
            OR ((trb.itemname like 'svm%' ) AND (trb.evaluation_function IS NOT NULL AND ((tr.evaluation_function / trb.evaluation_function) between 0.0000001 and 10000000 )))   
@@ -106,12 +105,6 @@ CREATE OR REPLACE VIEW benchmark.testresultreport AS
 
       WHEN (trb.itemname like 'kmeans_new_%' AND (trb.issuccessful <> tr.issuccessful OR tr.evaluation_function < trb.evaluation_function))
       THEN  'FAILED'
-
-      WHEN (trb.itemname like 'kmeans_new_%' AND trb.issuccessful = tr.issuccessful AND tr.evaluation_function >= trb.evaluation_function)
-       THEN  'PASSED'
-
-      WHEN (trb.itemname like 'kmeans_new_%' AND (trb.issuccessful <> tr.issuccessful OR tr.evaluation_function < trb.evaluation_function))
-       THEN  'FAILED'
 
       ELSE 'CASES NEED TO BE INVESTIGATE'
       

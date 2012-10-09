@@ -3024,6 +3024,85 @@
                 <type>double precision</type>
             </output_parameter>
          </method>
+
+         <method>
+            <name>kmeans_new_plusplus_ctas</name>
+            <create>true</create>
+            <template>
+                SELECT {madlib_schema}.create_table_as('{table_name}', $$
+                   SELECT * FROM {madlib_schema}.kmeanspp
+                        ( {src_relation}     -- rel_source
+                        , {src_col_data}     -- expr_point
+                        , {k}                -- k
+                        , ({dist_metrics})[1]-- fn_dist
+                        , {agg_mean}         -- agg_mean
+                        , {max_iter}         -- max_num_iterations
+                        , {conv_threshold}   -- min_frac_reassigned
+                        ) AS q
+                $$);
+                SELECT {madlib_schema}.simple_silhouette
+                    ( {src_relation}         -- rel_source
+                    , {src_col_data}         -- expr_point
+                    , (SELECT centroids FROM {table_name}) -- centroids
+                    , ({dist_metrics})[2]    -- fn_dist
+                    ) as silhouette;
+            </template>
+            <output_parameter>
+                <name>silhouette</name>
+                <type>double precision</type>
+            </output_parameter>
+            <input_parameter>
+                <name>table_name </name>
+                <type>text</type>
+                <quote>false</quote>
+            </input_parameter>
+            <input_parameter>
+                <name>src_relation</name>
+                <type>text</type>
+           </input_parameter>
+           <input_parameter>
+                <name>src_col_data</name>
+                <type>text</type>
+            </input_parameter>
+            <input_parameter>
+                <name>k</name>
+                <type>smallint</type>
+            </input_parameter>
+            <input_parameter>
+                <name>dist_metrics</name>
+                <type>text</type>
+                <quote>false</quote>
+                <default>ARRAY['madlib.squared_dist_norm2','madlib.dist_norm2']</default>
+            </input_parameter>
+            <input_parameter>
+                <name>agg_mean</name>
+                <type>text</type>
+                <default>madlib.avg</default>
+            </input_parameter>
+            <input_parameter>
+                <name>max_iter</name>
+                <type>int</type>
+                <default>20</default>
+            </input_parameter>
+            <input_parameter>
+                <name>conv_threshold</name>
+                <type>double precision</type>
+                <default>0.001</default>
+            </input_parameter>
+            <!-- result arguments-->
+            <output_parameter>
+                <name>objective_fn</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>frac_reassigned</name>
+                <type>double precision</type>
+            </output_parameter>
+            <output_parameter>
+                <name>num_iterations</name>
+                <type>integer</type>
+            </output_parameter>
+         </method>
  
           <method>
             <name>kmeans_new_cset_ctas</name>
